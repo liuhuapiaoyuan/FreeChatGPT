@@ -484,7 +484,7 @@ const EditViewButtons = React.memo(
             </button>
           )}
         </div>
-        <CommandPrompt messageIndex={messageIndex!} _setContent={_setContent} />
+        <CommandPrompt _setContent={_setContent} />
       </div>
     );
   }
