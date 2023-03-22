@@ -1,11 +1,13 @@
 import { ConfigInterface, MessageInterface } from '@type/chat';
 
+const FREE_API_KEY = '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';
 export const getChatCompletion = async (
   endpoint: string,
   messages: MessageInterface[],
   config: ConfigInterface,
   apiKey?: string
 ) => {
+  apiKey = apiKey == 'free' ? FREE_API_KEY : apiKey;
   const headers: HeadersInit = {
     'Content-Type': 'application/json',
   };
@@ -32,6 +34,7 @@ export const getChatCompletionStream = async (
   config: ConfigInterface,
   apiKey?: string
 ) => {
+  apiKey = apiKey == 'free' ? FREE_API_KEY : apiKey;
   const headers: HeadersInit = {
     'Content-Type': 'application/json',
   };

@@ -395,6 +395,7 @@ const EditView = ({
         ></textarea>
       </div>
       <EditViewButtons
+        messageIndex={messageIndex}
         sticky={sticky}
         handleSaveAndSubmit={handleSaveAndSubmit}
         handleSave={handleSave}
@@ -422,7 +423,9 @@ const EditViewButtons = React.memo(
     setIsModalOpen,
     setIsEdit,
     _setContent,
+    messageIndex,
   }: {
+    messageIndex?: number;
     sticky?: boolean;
     handleSaveAndSubmit: () => void;
     handleSave: () => void;
@@ -481,7 +484,7 @@ const EditViewButtons = React.memo(
             </button>
           )}
         </div>
-        <CommandPrompt _setContent={_setContent} />
+        <CommandPrompt messageIndex={messageIndex!} _setContent={_setContent} />
       </div>
     );
   }

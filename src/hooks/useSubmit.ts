@@ -24,7 +24,8 @@ const useSubmit = () => {
       data = await getChatCompletion(
         useStore.getState().apiEndpoint,
         message,
-        _defaultChatConfig
+        _defaultChatConfig,
+        'free'
       );
     } else if (apiKey) {
       data = await getChatCompletion(
@@ -63,7 +64,8 @@ const useSubmit = () => {
         stream = await getChatCompletionStream(
           useStore.getState().apiEndpoint,
           messages,
-          chats[currentChatIndex].config
+          chats[currentChatIndex].config,
+          'free'
         );
       } else if (apiKey) {
         stream = await getChatCompletionStream(

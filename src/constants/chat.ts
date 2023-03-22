@@ -10,9 +10,7 @@ const dateString =
   ('0' + date.getDate()).slice(-2);
 
 // default system message obtained using the following method: https://twitter.com/DeminDimin/status/1619935545144279040
-export const _defaultSystemMessage = `You are ChatGPT, a large language model trained by OpenAI.
-Knowledge cutoff: 2021-09
-Current date: ${dateString}`;
+export const _defaultSystemMessage = `我是AI助理，可以点击此处编辑我的角色，比如： 一名优秀的设计师，擅长各种移动端UI交互设计！`;
 
 export const modelOptions: ModelOptions[] = [
   'gpt-3.5-turbo',
@@ -46,7 +44,7 @@ export const _defaultChatConfig: ConfigInterface = {
 };
 
 export const generateDefaultChat = (title?: string): ChatInterface => ({
-  title: title ? title : 'New Chat',
+  title: title ? title : '话题',
   messages: [
     { role: 'system', content: useStore.getState().defaultSystemMessage },
   ],

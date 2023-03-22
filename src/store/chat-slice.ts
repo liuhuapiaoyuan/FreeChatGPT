@@ -5,6 +5,8 @@ export interface ChatSlice {
   messages: MessageInterface[];
   chats?: ChatInterface[];
   currentChatIndex: number;
+  /* 是否准备好 */
+  pending?: boolean;
   generating: boolean;
   error: string;
   setMessages: (messages: MessageInterface[]) => void;
@@ -12,6 +14,7 @@ export interface ChatSlice {
   setCurrentChatIndex: (currentChatIndex: number) => void;
   setGenerating: (generating: boolean) => void;
   setError: (error: string) => void;
+  setPending: (pending: boolean) => void;
 }
 
 export const createChatSlice: StoreSlice<ChatSlice> = (set, get) => ({
@@ -47,6 +50,12 @@ export const createChatSlice: StoreSlice<ChatSlice> = (set, get) => ({
     set((prev: ChatSlice) => ({
       ...prev,
       error: error,
+    }));
+  },
+  setPending: (pending: boolean) => {
+    set((prev: ChatSlice) => ({
+      ...prev,
+      pending,
     }));
   },
 });

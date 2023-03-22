@@ -16,7 +16,7 @@ const MenuOptions = () => {
       <ImportExportChat />
       <Api />
       <SettingsMenu />
-      <Me />
+      {/* <Me /> */}
     </>
   );
 };
